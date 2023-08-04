@@ -1,7 +1,7 @@
 <div class = "list"  >  
     <div *ngFor = "let item of users |async" class="item"  >
       <h1>{{item.fio}}</h1> 
-      <h2>{{item.id }}</h2> 
+      <h2>{{item.birthDate }}</h2> 
       <div class="photo">
 
       <img [src]="'data:image/png;base64,' + item.photo" alt ="Тут должно быть фото, но его нет :с"/>  

@@ -21,4 +21,9 @@ export class UserServiceService implements OnInit {
   public getUsers():Observable<any>{
     return this.http.get<any>("https://localhost:7081/allusers")
   }
+
+  public addUser(name:string,date:string,mail:string,file:any) : Observable<any>{
+    const body = {FIO: name, email: mail,BirthDate:date,filePath:file}
+    return this.http.post<any>("https://localhost:7081/Register",body)
+  }
 }

@@ -2,6 +2,9 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import { User } from '../models/user';
 import { UserServiceService } from '../services/user-service.service';
 import { Observable } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser'
+import {UrlCodec} from '@angular/common/upgrade'
+import { Byte } from "@angular/compiler/src/util";
 
 
 @Component({
@@ -11,7 +14,10 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public userservice: UserServiceService) { }
+  constructor(public userservice: 
+    UserServiceService,
+    private sanitizer: DomSanitizer
+    ) { }
 
   users :any
   
@@ -23,7 +29,4 @@ export class HomeComponent implements OnInit {
   public getUsers(){
     return this.userservice.getUsers();
   }
-
- 
-
 }
